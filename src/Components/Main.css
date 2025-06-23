@@ -26,3 +26,44 @@
   background-color: rgb(158, 163, 173);
   color: white;
 }
+
+.navbar-toggler {
+  border: none; /* Remove border for a cleaner look */
+}
+
+.navbar-toggler-icon {
+  background-color: white; /* Change color for visibility */
+  width: 30px; /* Adjust width */
+  height: 3px; /* Adjust height */
+  position: relative; /* Positioning for pseudo-elements */
+}
+
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+  content: '';
+  background-color: white; /* Change color for visibility */
+  display: block;
+  height: 3px; /* Adjust height */
+  width: 100%; /* Full width */
+  position: absolute; /* Positioning */
+  left: 0; /* Align to the left */
+}
+
+.navbar-toggler-icon::before {
+  top: -8px; /* Position above the middle bar */
+}
+
+.navbar-toggler-icon::after {
+  bottom: -8px; /* Position below the middle bar */
+}
+
+.mainmenu {
+  display: flex;
+  flex-direction: column; /* Stack items vertically on small screens */
+}
+
+@media (min-width: 768px) {
+  .mainmenu {
+    flex-direction: row; /* Stack items horizontally on larger screens */
+  }
+}

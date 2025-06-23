@@ -100,10 +100,11 @@ export default function AllProducts() {
     );
   }
 
-  return (
-    <div className="container mt-4">
-      <h2>All Products</h2>
+ return (
+  <div className="container mt-4">
+    <h2>All Products</h2>
 
+    <div className="table-responsive"> {/* Added this div for responsiveness */}
       <table className="table table-bordered">
         <thead className="table-dark text-center">
           <tr>
@@ -153,22 +154,23 @@ export default function AllProducts() {
           })}
         </tbody>
       </table>
+    </div> {/* End of table-responsive div */}
 
-      <div className="text-center">
-        <button
-          disabled={page === 1}
-          onClick={() => setPage(page - 1)}
-          className="btn btn-secondary btn-sm me-2"
-        >
-          Previous
-        </button>
-        <button
-          onClick={() => setPage(page + 1)}
-          className="btn btn-secondary btn-sm"
-        >
-          Next
-        </button>
-      </div>
+    <div className="text-center">
+      <button
+        disabled={page === 1}
+        onClick={() => setPage(page - 1)}
+        className="btn btn-secondary btn-sm me-2"
+      >
+        Previous
+      </button>
+      <button
+        onClick={() => setPage(page + 1)}
+        className="btn btn-secondary btn-sm"
+      >
+        Next
+      </button>
     </div>
-  );
+  </div>
+);
 }
