@@ -1,0 +1,28 @@
+.mainmenu {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.mainmenu li {
+  list-style: none;
+  padding: 16px;
+}
+
+.mainmenu li a {
+  text-decoration: none;
+  color: black;
+  padding: 8px 12px;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  border-radius: 6px;
+}
+
+.mainmenu li a.active {
+  color: red;
+  font-weight: bold;
+}
+
+.mainmenu li a:hover {
+  background-color: rgb(158, 163, 173);
+  color: white;
+}
