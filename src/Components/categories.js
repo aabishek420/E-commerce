@@ -45,22 +45,28 @@ function Categories() {
   }
 
   return (
-    <div className="row m-5 w-100">
-      {category.map((data) => (
-        <div key={data} className="col-md-3 mb-4">
-          <Link to={routeMap[data]} style={{ textDecoration: 'none' }}>
-            <div className="card h-100 text-center p-3 category-card">
-              <img
-                src={categoryImages[data]}
-                alt={data}
-                className="card-img-top img-fluid mb-3"
-                style={{ height: "180px", objectFit: "contain" }}
-              />
-              <h5 className="card-title">{data}</h5>
-            </div>
-          </Link>
-        </div>
-      ))}
+    <div className="container-fluid px-md-5 px-3 py-4">
+      <div className="row g-3">
+        {category.map((data) => (
+          <div key={data} className="col-12 col-sm-6 col-md-4 col-lg-3">
+            <Link to={routeMap[data]} style={{ textDecoration: 'none' }}>
+              <div className="card h-100 text-center p-3 category-card">
+                <img
+                  src={categoryImages[data]}
+                  alt={data}
+                  className="card-img-top img-fluid mb-3"
+                  style={{ 
+                    height: "180px", 
+                    objectFit: "contain",
+                    maxHeight: "30vh" // Added for better mobile responsiveness
+                  }}
+                />
+                <h5 className="card-title fs-6 fs-md-5">{data}</h5>
+              </div>
+            </Link>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
