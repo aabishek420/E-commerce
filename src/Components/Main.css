@@ -1,12 +1,56 @@
-.mainmenu {
-  display: flex;
-  margin: 0;
-  padding: 0;
+/* Main menu container */
+.mainmenu-container {
+  background-color: #f8f9fa;
+  padding: 10px 0;
+  width: 100%;
+  position: relative;
 }
 
-.mainmenu li {
+/* Main menu styles */
+.mainmenu {
+  margin: 0;
+  padding: 0;
   list-style: none;
-  padding: 16px;
+  width: 100%;
+}
+
+/* Mobile menu styles */
+@media (max-width: 767px) {
+  .mainmenu {
+    display: none;
+    flex-direction: column;
+  }
+  
+  .mainmenu.show {
+    display: flex;
+  }
+  
+  .navbar-toggler {
+    display: block;
+    background: none;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    margin: 0 auto;
+  }
+}
+
+/* Desktop styles - horizontal menu */
+@media (min-width: 768px) {
+  .mainmenu {
+    display: flex !important; /* Override any display:none */
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  .navbar-toggler {
+    display: none !important; /* Hide toggle button on desktop */
+  }
+}
+
+/* Menu item styles */
+.mainmenu li {
+  padding: 8px 16px;
 }
 
 .mainmenu li a {
@@ -15,6 +59,8 @@
   padding: 8px 12px;
   transition: color 0.3s ease, background-color 0.3s ease;
   border-radius: 6px;
+  display: block;
+  text-align: center;
 }
 
 .mainmenu li a.active {
@@ -27,43 +73,46 @@
   color: white;
 }
 
-.navbar-toggler {
-  border: none; /* Remove border for a cleaner look */
-}
-
+/* Hamburger menu button styles */
 .navbar-toggler-icon {
-  background-color: white; /* Change color for visibility */
-  width: 30px; /* Adjust width */
-  height: 3px; /* Adjust height */
-  position: relative; /* Positioning for pseudo-elements */
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  position: relative;
+  transition: all 0.3s ease;
 }
 
 .navbar-toggler-icon::before,
 .navbar-toggler-icon::after {
   content: '';
-  background-color: white; /* Change color for visibility */
-  display: block;
-  height: 3px; /* Adjust height */
-  width: 100%; /* Full width */
-  position: absolute; /* Positioning */
-  left: 0; /* Align to the left */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #333;
+  left: 0;
+  transition: all 0.3s ease;
 }
 
 .navbar-toggler-icon::before {
-  top: -8px; /* Position above the middle bar */
+  top: -8px;
 }
 
 .navbar-toggler-icon::after {
-  bottom: -8px; /* Position below the middle bar */
+  bottom: -8px;
 }
 
-.mainmenu {
-  display: flex;
-  flex-direction: column; /* Stack items vertically on small screens */
+/* Transform hamburger to X when menu is open */
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+  background-color: transparent;
 }
 
-@media (min-width: 768px) {
-  .mainmenu {
-    flex-direction: row; /* Stack items horizontally on larger screens */
-  }
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::after {
+  transform: rotate(-45deg);
+  bottom: 0;
 }
