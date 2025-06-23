@@ -8,12 +8,12 @@ function Header() {
             <nav className="navbar navbar-expand-lg" style={{ backgroundColor: '#064179' }}>
                 <div className="container-fluid">
                     <span className="navbar-brand mb-0 h1 text-white">React Ecommerce</span>
-                    <div className="collapse navbar-collapse" id="navbarNav">
-                        <div className="ms-auto d-flex flex-column flex-lg-row">
+
+                        <div className="ms-auto d-flex flex-column flex-lg-row mb-3">
                             <Signin />
                             <Signup />
                         </div>
-                    </div>
+                   
                 </div>
             </nav>
         </>
