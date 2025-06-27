@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from "react";
+// import React, { useEffect, useState } from "react";
 import "./Section.css";
 import electronicsImg from "./asserts/electronics.jpg";
 import jewelryImg from "./asserts/jw.jpg";
 import mensClothingImg from "./asserts/mens clothing.jpg";
 import womensClothingImg from "./asserts/women.jpg";
 import { Link } from "react-router-dom";
+import useFetch from "./UseFetch";
 
 function Categories() {
-  const [category, setCategory] = useState([]);
-  const [loading, setLoading] = useState(true);
+  //const [category, setCategory] = useState([]);
+  // const [loading, setLoading] = useState(true);
 
   const categoryImages = {
     "electronics": electronicsImg,
@@ -24,14 +25,16 @@ function Categories() {
     "women's clothing": "/womens-clothing"
   };
 
-  useEffect(() => {
+  /*useEffect(() => {
     fetch("https://fakestoreapi.com/products/categories")
       .then((res) => res.json())
       .then((json) => {
         setCategory(json);
         setLoading(false);
       });
-  }, []);
+  }, []);*/
+
+        const[category,loading]=useFetch('https://fakestoreapi.com/products/categories');
 
   if (loading) {
     return (

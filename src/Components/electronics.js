@@ -1,23 +1,24 @@
-import React, { useState, useEffect } from 'react';
-
 import { Link } from 'react-router-dom';
+import useFetch from "./UseFetch";
 
 export default function Electronics() {
-    const [category, setCategory] = useState([]);
-    const [loading, setLoading] = useState(true);
+    // const [category, setCategory] = useState([]);
+    // const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        setLoading(true);
-        fetch("https://fakestoreapi.com/products/category/electronics")
-            .then((res) => res.json())
-            .then((json) => {
-                setCategory(json);
-                setLoading(false);
-            });
-    }, []);
+    // useEffect(() => {
+    //     setLoading(true);
+    //     fetch("https://fakestoreapi.com/products/category/electronics")
+    //         .then((res) => res.json())
+    //         .then((json) => {
+    //             setCategory(json);
+    //             setLoading(false);
+    //         });
+    // }, []);
+
+ const[category,loading]=useFetch('https://fakestoreapi.com/products/category/electronics');
+
 
     let content;
-
     if (loading) {
         content = (
             <div className="text-center mt-5">

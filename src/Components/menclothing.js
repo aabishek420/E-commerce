@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+// import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-
+import useFetch from './UseFetch';
 export default function Menclothing() {
-  const [category, setCategory] = useState([]);
-  const [loading, setLoading] = useState(true);
+  //const [category, setCategory] = useState([]);
+  // const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
+  /*useEffect(() => {
     setLoading(true);
     fetch(`https://fakestoreapi.com/products/category/${encodeURIComponent("men's clothing")}`)
       .then((res) => res.json())
@@ -13,8 +13,9 @@ export default function Menclothing() {
         setCategory(json);
         setLoading(false);
       });
-  }, []);
-
+  }, []);*/
+   const [category,loading] = useFetch(`https://fakestoreapi.com/products/category/${encodeURIComponent("men's clothing")}`)
+ 
   // Correct debugging
   console.log("Category array:", category);
   console.log("First item category (if available):", category[0]?.category);
